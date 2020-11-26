@@ -17,11 +17,11 @@ services:
     build:
       context: build/mysql
     image: iutlr-info-mysql-mpapws
-    container_name: iutlr-info2-mysql-mpapws:delegated  
+    container_name: iutlr-info2-mysql-mpapws
     ports:
       - 3306:3306
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql:delegated
     environment:
       MYSQL_DATABASE: db-mpapws
       MYSQL_USER: mpapws

@@ -59,6 +59,17 @@ Le service correspondant est bd
     * **IMPORTANT** : ajouter ce registry dans la config du deamon docker, exemple voir, la capture ci-dessous pour la config de docker sous OSX : 
     <div align="center" ><img alt="config registry docker OSX" src="ressources/osx-docker-registry-config.png" width="500" height="(500" /></div>
 
+    * Si vous êtres sous Linux : 
+        - (1) Exécuter le fichier `ressources/setDaemonLinux.sh` comme suit :      
+            ```
+            sudo bash setDaemonLinux.sh
+            ```
+
+        - (2) Redémarer le service docker comme suit : 
+            ```
+            sudo systemctl restart docker.service
+            ```
+
 # Mise en oeuvre
 
 ## I- Initialisation du projet : du projet git modèle vers un projet git équipe - initialisation par l'étudiant propriétaire du projet git

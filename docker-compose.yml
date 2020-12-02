@@ -3,14 +3,14 @@ services:
   app:
     build:
       args: 
-        APP_DOCUMENT_ROOT: /var/www/html/mpapws/public
+        APP_DOCUMENT_ROOT: /var/www/html/dyalconnect/public
       context: ./build/mpapws
     image: iutlr-info-apache-symfony5-mpapws
     container_name: iutlr-info2-projet-mpapws
     ports:
       - 9999:80
     volumes:
-      - ./mpapws:/var/www/html/mpapws:delegated  
+      - ./mpapws:/var/www/html/dyalconnect:delegated  
     networks:
       - mpapws-network
   mysql:

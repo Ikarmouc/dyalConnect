@@ -20,8 +20,8 @@ services:
     container_name: iutlr-info2-mysql-mpapws
     ports:
       - 3306:3306
-    volumes:
-      - ./mysql:/var/lib/mysql:delegated
+    #volumes:
+    #  - ./mysql:/var/lib/mysql:delegated
     environment:
       MYSQL_DATABASE: db-mpapws
       MYSQL_USER: mpapws

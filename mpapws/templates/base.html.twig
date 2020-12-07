@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <ul>
+            <li><a href="default.asp">Home</a></li>
+            <li><a href="news.asp">News</a></li>
+            <li><a href="contact.asp">Contact</a></li>
+            <li><a href="about.asp">About</a></li>
+        </ul>
+        <style>
+            li {
+                float: left;
+            }
+
+            a {
+                display: block;
+                padding: 8px;
+                background-color: #dddddd;
+            }
+        </style>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets <link  >%}
@@ -10,6 +27,6 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
     </body>
 </html>

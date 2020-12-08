@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Exploitation;
+use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,12 +11,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class ListeProduitController extends AbstractController
 {
     /**
-     * @Route("/moncompte/listeproduits/{id}", name="liste_produit")
+     * @Route("/exploitation/{id}/produits", name="liste_produit")
      */
-    public function index(): Response
+    public function index(ProduitRepository $produitRepository, Exploitation $exploitation)
     {
+        $produits = $produitRepository->findBy(array("idExploitation" => $exploitation));
+
         return $this->render('liste_produit/index.html.twig', [
             'controller_name' => 'ListeProduitController',
+            'exploitation' => $exploitation,
+            'produits' => $produits,
         ]);
     }
 }

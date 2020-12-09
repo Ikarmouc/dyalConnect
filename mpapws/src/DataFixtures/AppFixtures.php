@@ -27,17 +27,17 @@ class AppFixtures extends Fixture
             $exploitation->setDetails("Détail de l'exploitation " . $i);
 
             $produit1 = new Produit();
-            $produit1->setNom("Produit 1");
+            $produit1->setNom("Produit 1 - Exploitation " . $i);
             $produit1->setIdExploitation($i);
             $produit1->setDescription("Description du produit 1");
 
             $produit2 = new Produit();
-            $produit2->setNom("Produit 2");
+            $produit2->setNom("Produit 2 - Exploitation " . $i);
             $produit2->setIdExploitation($i);
             $produit2->setDescription("Description du produit 2");
 
             $produit3 = new Produit();
-            $produit3->setNom("Produit 3");
+            $produit3->setNom("Produit 3 - Exploitation " . $i);
             $produit3->setIdExploitation($i);
             $produit3->setDescription("Description du produit 3");
 

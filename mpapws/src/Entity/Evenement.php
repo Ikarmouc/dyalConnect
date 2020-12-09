@@ -26,7 +26,7 @@ class Evenement
     /**
      * @ORM\Column(type="integer")
      */
-    private $idProducteur;
+    private $idProducteur; //Correspond a l'id de la production
 
     /**
      * @ORM\Column(type="string", length=255)

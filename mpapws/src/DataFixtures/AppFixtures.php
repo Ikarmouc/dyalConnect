@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Evenement;
 use App\Entity\Exploitation;
 use App\Entity\Producteurs;
 use App\Entity\Produit;
@@ -44,6 +45,20 @@ class AppFixtures extends Fixture
             $entityManager->persist($produit1);
             $entityManager->persist($produit2);
             $entityManager->persist($produit3);
+
+
+            $evenement1 = new Evenement();
+            $evenement1->setNomEvt("Evenement 1 - Exploitation " . $i);
+            $evenement1->setIdProducteur($i);
+            $evenement1->setDetailEvt("Description de l'evenement 1");
+
+            $evenement2 = new Evenement();
+            $evenement2->setNomEvt("Evenement 2 - Exploitation " . $i);
+            $evenement2->setIdProducteur($i);
+            $evenement2->setDetailEvt("Description de l'evenement 2");
+
+            $entityManager->persist($evenement1);
+            $entityManager->persist($evenement2);
 
             $entityManager->persist($producteurs);
             $entityManager->persist($exploitation);

@@ -14,33 +14,33 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $entityManager)
     {
-        for($i = 1; $i <= 3; $i++)
+        for($i = 1; $i <= 1; $i++)
         {
             $producteurs = new Producteurs();
             $producteurs->setExploitationId($i);
-            $producteurs->setNom("Nom Exploitant " . $i);
-            $producteurs->setPrenom("Prenom Exploitant " . $i);
+            $producteurs->setNom("Dupres");
+            $producteurs->setPrenom("Jean-marie");
 
             $exploitation = new Exploitation();
-            $exploitation->setNom("Exploitation du producteur " . $i);
-            $exploitation->setAdresse("Adresse du producteur " . $i);
+            $exploitation->setNom("La Prod' de Jean-mi");
+            $exploitation->setAdresse("4 rue de la france 29000 Brest");
             $exploitation->setIdExploitant($i);
-            $exploitation->setDetails("Détail de l'exploitation " . $i);
+            $exploitation->setDetails("Une fromagerie de qualité 100% bretonne");
 
             $produit1 = new Produit();
-            $produit1->setNom("Produit 1 - Exploitation " . $i);
+            $produit1->setNom(" Fromage de chevre");
             $produit1->setIdExploitation($i);
-            $produit1->setDescription("Description du produit 1");
+            $produit1->setDescription("Un fromage de qualité fait de façon traditionelle");
 
             $produit2 = new Produit();
-            $produit2->setNom("Produit 2 - Exploitation " . $i);
+            $produit2->setNom("Reblochon");
             $produit2->setIdExploitation($i);
             $produit2->setDescription("Description du produit 2");
 
             $produit3 = new Produit();
-            $produit3->setNom("Produit 3 - Exploitation " . $i);
+            $produit3->setNom("La perle Noir");
             $produit3->setIdExploitation($i);
-            $produit3->setDescription("Description du produit 3");
+            $produit3->setDescription("un fromage doux et moelleux.");
 
             $entityManager->persist($produit1);
             $entityManager->persist($produit2);
@@ -48,14 +48,14 @@ class AppFixtures extends Fixture
 
 
             $evenement1 = new Evenement();
-            $evenement1->setNomEvt("Evenement 1 - Exploitation " . $i);
+            $evenement1->setNomEvt("Solde sur les fromages de chevres");
             $evenement1->setIdProducteur($i);
-            $evenement1->setDetailEvt("Description de l'evenement 1");
+            $evenement1->setDetailEvt("-20% sur vos fromages de chevres du 10/12/2020 au 15/12/2019");
 
             $evenement2 = new Evenement();
-            $evenement2->setNomEvt("Evenement 2 - Exploitation " . $i);
+            $evenement2->setNomEvt("Une perle noir acheté une offerte");
             $evenement2->setIdProducteur($i);
-            $evenement2->setDetailEvt("Description de l'evenement 2");
+            $evenement2->setDetailEvt("Pour l'achat d'un fromage perle noir, un deuxieme est offert !");
 
             $entityManager->persist($evenement1);
             $entityManager->persist($evenement2);

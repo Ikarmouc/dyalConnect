@@ -15,7 +15,8 @@
 <body>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/exploitation/{{ exploitation.id }}/produits">{{ exploitation.nom }}</a></li>
+            <li class="breadcrumb-item"><a href="/exploitation/{{ exploitation.id }}">{{ exploitation.nom }}</a></li>
+            <li class="breadcrumb-item"><a href="/exploitation/{{ exploitation.id }}/produits">Liste des produits de l'exploitation {{ exploitation.nom }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ produit.nom }}</li>
         </ol>
     </nav>

@@ -16,6 +16,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb"> <!-- Fil d'arianne-->
+            <li class="breadcrumb-item"><a href="/exploitation/{{ exploitation.id }}">{{ exploitation.nom }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">liste evenements de l'exploitation {{ exploitation.nom}}</li>
+        </ol>
+    </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_content">
             <main>

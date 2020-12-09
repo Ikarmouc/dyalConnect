@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/1f7457abdb.js"></script>
     <title>{% block title %}Test Application{% endblock %}</title>
 
-    <header style="background-color: slategray; margin-bottom: 75px;">
+    <header style="background-color: slategray; ">
         <nav class="navbar navbar-expand-lg navbar-dark info-color">
             <a class="navbar-brand" href="#">Dyalconnect</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,8 +49,20 @@
 
 </head>
 <body>
+<div style="background: url(https://cdn.discordapp.com/attachments/778247519405998121/786340218676445255/background.jpg)" class="page-holder bg-cover">
+<style>
+    .page-holder {
+        min-height: 100vh;
+    }
+    .bg-cover {
+        background-size: cover !important;
+    }
+    body
+    {
+        background-color: #859294;
 
-<style>body{background-color: gray}</style>
+    }
+</style>
 
 <div id="content">
     {% block body %}{% endblock %}

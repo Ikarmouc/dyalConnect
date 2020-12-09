@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des produits de {{ exploitation.name }}{% endblock %}
+{% block title %}Liste des produits de {{ exploitation.nom }}{% endblock %}
 
 {% block body %}
 <html lang="en">
@@ -16,6 +16,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/exploitation/{{ exploitation.id }}">{{ exploitation.nom }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Liste de produits de l'exploitation {{ exploitation.nom }}</li>
+    </ol>
+</nav>
+
 <div id="layoutSidenav">
     <div id="layoutSidenav_content">
         <main>

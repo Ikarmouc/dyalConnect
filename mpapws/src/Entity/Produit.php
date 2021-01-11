@@ -32,6 +32,11 @@ class Produit
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $mainImage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +81,18 @@ class Produit
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getMainImage(): ?int
+    {
+        return $this->mainImage;
+    }
+
+    public function setMainImage(?int $mainImage): self
+    {
+        $this->mainImage = $mainImage;
 
         return $this;
     }

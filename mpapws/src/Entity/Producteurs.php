@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\ProducteursRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=ProducteursRepository::class)

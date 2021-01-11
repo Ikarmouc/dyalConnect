@@ -38,8 +38,9 @@ class ProduitType extends AbstractType
                         "maxSize" => "25000k",
                         "mimeTypes" => [
                             "image/png",
+                            "image/jpg",
                         ],
-                        "mimeTypesMessage" => "PNG uniquement",
+                        "mimeTypesMessage" => "PNG/JPEG uniquement",
                     ])
                 ]
             ])

@@ -32,7 +32,7 @@ class ListeProduitController extends AbstractController
             {
                 $imageName = $imageRepository->find(array("id" => $produit->getMainImage()))->getImageName();
                 $images = $this->array_push_assoc($images, $produit->getNom(), $imageName);
-                var_dump($images);
+                
             }
             else
             {

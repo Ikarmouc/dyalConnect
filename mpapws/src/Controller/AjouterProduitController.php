@@ -39,6 +39,7 @@ class AjouterProduitController extends AbstractController
                 try
                 {
                     $imageFile->move($this->getParameter("images_directory"), $newFilename);
+                    print_r("fichier déplacé");
                 }
                 catch (FileException $e)
                 {

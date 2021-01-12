@@ -30,8 +30,9 @@ class ListeProduitController extends AbstractController
         {
             if($produit->getMainImage() != null)
             {
-                $imageName = $imageRepository->find(array("id" => 1))->getImageName();
+                $imageName = $imageRepository->find(array("id" => $produit->getMainImage()))->getImageName();
                 $images = $this->array_push_assoc($images, $produit->getNom(), $imageName);
+                var_dump($images);
             }
             else
             {

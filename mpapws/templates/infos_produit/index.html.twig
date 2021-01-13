@@ -4,12 +4,7 @@
 
 {% block body %}
 <head>
-    <style>
-        .mb-4
-        {
-            margin: 200px;
-        }
-    </style>
+    <link href="/css/infoProduit.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,12 +15,14 @@
             <li class="breadcrumb-item active" aria-current="page">{{ produit.nom }}</li>
         </ol>
     </nav>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">{{ produit.nom }}</h6>
+    <div class="container-fluid bg-light d-flex justify-content-between w-75">
+        <div>
+            <h1 class="lead my-5 border-primary border-bottom rounded-left h1">{{ produit.nom }}</h1>
+            <p class="my-5">{{ produit.categorie }}</p>
+            <p class="my-5">{{ produit.description }}</p>
         </div>
-        <div class="card-body">
-            <p>{{ produit.description }}</p>
+        <div>
+            <img src="/images/Chevrex.jpg">
         </div>
     </div>
 </body>

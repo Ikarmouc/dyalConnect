@@ -51,11 +51,15 @@ class AppFixtures extends Fixture
             $evenement1->setNomEvt("Solde sur les fromages de chevres");
             $evenement1->setIdProducteur($i);
             $evenement1->setDetailEvt("-20% sur vos fromages de chevres du 10/12/2020 au 15/12/2019");
+            $evenement1->setDateEvt("10/12/2020 - 15/12/2019");
+            $evenement1->setHoraireEvt("14h00 - 17h00");
 
             $evenement2 = new Evenement();
             $evenement2->setNomEvt("Une perle noir acheté une offerte");
             $evenement2->setIdProducteur($i);
             $evenement2->setDetailEvt("Pour l'achat d'un fromage perle noir, un deuxieme est offert !");
+            $evenement2->setDateEvt("31/01/2021");
+            $evenement2->setHoraireEvt("14h00 - 17h00");
 
             $entityManager->persist($evenement1);
             $entityManager->persist($evenement2);

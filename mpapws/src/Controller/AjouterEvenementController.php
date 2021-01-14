@@ -44,7 +44,7 @@ class AjouterEvenementController extends AbstractController
                 }
                 catch (FileException $e)
                 {
-                    print_r("MARHCE APSSSSSSSSSSSSSSSSSSSSSSSSS");
+                    print_r("MARHCE PASSSSSSSSSSSSSSSSSSSSSSSSS");
                 }
 
                 $image = new Image();

@@ -30,15 +30,18 @@ class AppFixtures extends Fixture
             $produit1 = new Produit();
             $produit1->setNom(" Fromage de chevre");
             $produit1->setIdExploitation($i);
+            $produit1->setCategorie("Fromage");
             $produit1->setDescription("Un fromage de qualité fait de façon traditionelle");
 
             $produit2 = new Produit();
             $produit2->setNom("Reblochon");
             $produit2->setIdExploitation($i);
+            $produit2->setCategorie("Fromage");
             $produit2->setDescription("Description du produit 2");
 
             $produit3 = new Produit();
             $produit3->setNom("La perle Noir");
+            $produit3->setCategorie("Fromage");
             $produit3->setIdExploitation($i);
             $produit3->setDescription("un fromage doux et moelleux.");
 

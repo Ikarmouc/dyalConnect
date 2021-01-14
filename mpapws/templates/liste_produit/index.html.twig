@@ -54,7 +54,7 @@
             }
 
             .container .card .face.face1 .content{
-                opacity: 0.2;
+                opacity: 0.6;
                 transition: 0.5s;
             }
 
@@ -64,6 +64,13 @@
 
             .container .card .face.face1 .content img{
                 max-width: 100px;
+            }
+
+            img
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .container .card .face.face1 .content h3{
@@ -115,26 +122,65 @@
                 background-color: transparent; !important;
                 border: 0px;
             }
+
+            .container .add .face.face1
+            {
+                background-color: #DDDDDD;
+            }
+
+            .container .card.add:hover .face.face1{
+                background: #333333;
+                color: #DDDDDD;
+            }
+
+            .container .card.add .face.face1 .content h3{
+                color: #333333;
+            }
+
+            .container .card.add:hover .face.face1 .content h3{
+                color: #DDDDDD;
+            }
+
         </style>
     </head>
     <body>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/exploitation/{{ exploitation.id }}">{{ exploitation.nom }}</a></li>
+            <li class="breadcrumb-item active">Liste des produits de l'exploitation {{ exploitation.nom }}</li>
+        </ol>
+    </nav>
     <div class="container">
         {% for produit in produits %}
         <div class="card">
             <div class="face face1">
                 <div class="content">
-                    <img src="">
+                    <img src="../../images/{{ images[produit.nom] }}">
                     <h3>{{ produit.nom }}</h3>
                 </div>
             </div>
             <div class="face face2">
                 <div class="content">
                     <p>{{ produit.description }}</p>
-                    <a href="#">Read More</a>
+                    <a href="{{ path("infos_produit", {idExploitation: produit.getIdExploitation(), id: produit.getId()}) }}">Détails</a>
                 </div>
             </div>
         </div>
         {% endfor %}
+        <div class="card add">
+            <div class="face face1">
+                <div class="content">
+                    <img src="../../images/plus.svg">
+                    <h3>Ajouter un produit</h3>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <p>Ajouter un produit à votre exploitation</p>
+                    <a href="{{ path("ajouter_produit", {id: produits[0].getIdExploitation()}) }}">Ajouter</a>
+                </div>
+            </div>
+        </div>
     </div>
     </body>
 </html>

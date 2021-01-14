@@ -16,7 +16,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class AjouterProduitController extends AbstractController
 {
     /**
-     * @Route("/exploitation/{id}/produit/nouveau", name="ajouter_produit")
+     * @Route("/exploitation/{id}/produits/nouveau", name="ajouter_produit")
      */
     public function index(Request $request, SluggerInterface $slugger, int $id, EntityManagerInterface $entityManager): Response
     {
@@ -39,6 +39,7 @@ class AjouterProduitController extends AbstractController
                 try
                 {
                     $imageFile->move($this->getParameter("images_directory"), $newFilename);
+                    print_r("fichier déplacé");
                 }
                 catch (FileException $e)
                 {

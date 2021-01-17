@@ -14,31 +14,37 @@ class Produit
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * Identifiant d'un produit
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
+     * Identifiant exploitation lié au produit
      */
     private $idExploitation;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * Nom du produit
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * Description du produit
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * Image principale du produit
      */
     private $mainImage;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * Categorie du produit
      */
     private $categorie;
 

@@ -13,6 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EvenementController extends AbstractController
 {
+
+    // Fonction permettant d'ajouter un élément dans une liste associative
     function array_push_assoc($array, $key, $value){
         $array[$key] = $value;
         return $array;
@@ -20,13 +22,17 @@ class EvenementController extends AbstractController
 
     /**
      * @Route("/exploitation/{id}/evenements", name="evenement")
+     * fonction permettant la récuperation des evenements dans une exploitation
      */
+
     public function index(ImageRepository $imageRepository,EvenementRepository $evenementRepository, Exploitation $exploitation): Response
     {
+
         $evenements = $evenementRepository->findBy(array("idProducteur" => $exploitation));
 
         $images = array();
 
+        // On parcourt les images des evenements pour les afficher dans le site
         foreach ($evenements as $evenement)
         {
             if($evenement->getImageEvt() != null)

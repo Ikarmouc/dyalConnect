@@ -6,7 +6,9 @@ use App\Entity\Evenement;
 use App\Entity\Exploitation;
 use App\Entity\Producteurs;
 use App\Entity\Produit;
+use Doctrine\Persistence\ObjectManager;
 use PHPUnit\Framework\TestCase;
+use function mysql_xdevapi\expression;
 
 class AjouterProduitTest extends TestCase
 {
@@ -24,8 +26,9 @@ class AjouterProduitTest extends TestCase
      * Fonction test création Produit
      * On crée un produit
      */
-    public function testAjoutEvenement()
+    public function testAjoutEvenement(ObjectManager $entityManager)
     {
+
         $client = static::createClient();
         $client->request("GET", "/exploitation/1/evenements");
 
@@ -40,14 +43,16 @@ class AjouterProduitTest extends TestCase
         $exploitation->setAdresse("4 rue de la france 29000 Brest");
         $exploitation->setIdExploitant(1);
         $exploitation->setDetails("Une fromagerie de qualité 100% bretonne");
+        $entityManager->persist($exploitation);
 
         $evenement = new Evenement();
-        $evenement->setNomEvt("Solde sur les fromages de chevres");
+        $evenement->setNomEvt("NomTest");
         $evenement->setIdProducteur(1);
-        $evenement->setDetailEvt("-20% sur vos fromages de chevres du 10/12/2020 au 15/12/2019");
-        $evenement->setDateEvt("10/12/2020 - 15/12/2019");
+        $evenement->setDetailEvt("DetailsTest");
+        $evenement->setDateEvt("12/12/2021");
         $evenement->setHoraireEvt("14h00 - 17h00");
+        $entityManager->persist($evenement);
 
-        $this->assertEquals("Solde sur les fromages de chevres",$evenement->getNomEvt());
+        $this->assertEquals("NomTest",$evenement->getNomEvt());
     }
 }

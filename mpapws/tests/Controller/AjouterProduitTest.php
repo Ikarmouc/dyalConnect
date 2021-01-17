@@ -3,6 +3,7 @@
 namespace App\Tests;
 
 use App\Entity\Produit;
+use Doctrine\Persistence\ObjectManager;
 use PHPUnit\Framework\TestCase;
 
 class AjouterProduitTest extends TestCase
@@ -21,7 +22,7 @@ class AjouterProduitTest extends TestCase
      * Fonction test création Produit
      * On crée un produit
      */
-    public function testAjoutProduit()
+    public function testAjoutProduit(ObjectManager $entityManager)
     {
         $client = static::createClient();
         $client->request("GET", "/exploitation/1/evenements");
@@ -31,6 +32,8 @@ class AjouterProduitTest extends TestCase
         $produit->setIdExploitation(1);
         $produit->setCategorie("Fromage");
         $produit->setDescription("Un fromage de qualité fait de façon traditionelle");
+        $entityManager->persist($produit);
+        $entityManager->flush();
 
         $this->assertEquals(1,$produit->getId());
     }

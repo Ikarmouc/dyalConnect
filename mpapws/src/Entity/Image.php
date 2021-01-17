@@ -14,16 +14,19 @@ class Image
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * Identifiant d'une image
      */
     private $id;
 
     /**
      * @ORM\Column(type="integer")
+     * Identifiant exploitation liée
      */
     private $idExploitation;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * Nom de l'image
      */
     private $imageName;
 

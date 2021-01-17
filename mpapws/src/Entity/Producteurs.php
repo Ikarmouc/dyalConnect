@@ -17,21 +17,25 @@ class Producteurs
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * Identifiant du producteur
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * Nom du producteur
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * Prenom du producteur
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="integer")
+     * Numero de l'exploitation lié au producteur
      */
     private $exploitationId;
 

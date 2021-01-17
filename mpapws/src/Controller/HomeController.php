@@ -19,12 +19,14 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="Accueil")
+     * Page par défaut du site
      */
-
     public function home(ExploitationRepository $repository):Response
     {
 
         $exploitations = $repository->findAll();
+
+        //Rendu du controller vers la page en html.twig
         return $this->render('home/home.html.twig', [
             'controller_name' => 'HomeController',
             'exploitations' => $exploitations,

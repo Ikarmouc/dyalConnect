@@ -115,7 +115,7 @@ class Evenement
 
     public function setHoraireEvt(string $horaireEvt): self
     {
-        $this->dateEvt = $horaireEvt;
+        $this->horaireEvt = $horaireEvt;
 
         return $this;
     }

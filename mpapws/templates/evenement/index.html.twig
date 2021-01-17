@@ -153,7 +153,7 @@
             <li class="breadcrumb-item active" aria-current="page">liste evenements de l'exploitation {{ exploitation.nom}}</li>
         </ol>
     </nav>
-    <div id="layoutSidenav">
+    <div id="layoutSidenav" style="background-color: white;">
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
@@ -169,6 +169,9 @@
                                     <tr>
                                         <th>Nom</th>
                                         <th>Détail</th>
+                                        <th>Date Evenement</th>
+                                        <th>Horaire</th>
+                                        <th>Image</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -176,38 +179,26 @@
                                         <tr>
                                             <td>{{ evenement.nomEvt }}</td>
                                             <td>{{ evenement.detailEvt }}</td>
+                                            <td>{{ evenement.dateEvt }}</td>
+                                            <td>{{ evenement.horaireEvt }}</td>
+                                            <td> <img style="max-width: 100px;max-height: 100px;" src="/images/{{ images[evenement.nomEvt] }}"></td>
                                         </tr>
                                     {% endfor %}
+                                        <tr>
+                                            <td colspan="4" style="text-align: right;"> Ajouter un evenement</td>
+                                            <td> <a href="{{ path("ajouter_evenement", {id: evenements[0].getIdProducteur()}) }}">
+                                                    <img src="/images/plus.svg" style="max-height: 50px;max-width: 50px;">
+                                                </a></td>
+                                            
+                                        </tr>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card add">
-                    <div class="face face2">
-                        <div class="content">
-                            <p>Ajouter un evenement à votre exploitation</p>
-                            <a href="{{ path("ajouter_evenement", {id: evenements[0].getIdProducteur()}) }}">
-                                <img src="../../images/plus.svg">
-                                <h3>Ajouter un evenement</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </main>
-            <!--<footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>-->
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

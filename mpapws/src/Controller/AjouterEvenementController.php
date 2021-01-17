@@ -57,12 +57,14 @@ class AjouterEvenementController extends AbstractController
                 $evenement->setNomEvt($nom);
                 $evenement->setIdProducteur($id);
                 $evenement->setDetailEvt($detail);
-                $evenement>setImageEvt($image->getId());
+                $evenement->setImageEvt($image->getId());
                 $evenement->setDateEvt($date);
                 $evenement->setHoraireEvt($horaire);
 
                 $entityManager->persist($evenement);
                 $entityManager->flush();
+
+                return $this->redirectToRoute("evenement", ["id" => $id]);
 
             }
         }

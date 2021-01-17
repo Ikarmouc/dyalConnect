@@ -39,7 +39,7 @@ class AjouterEvenement extends AbstractType
                     "placeholder" => "Horaire d'événement",
                 ],
             ])
-            ->add("image", FileType::class, [
+            ->add("imageEvt", FileType::class, [
                 "label" => "Image ou poster concernant événement",
                 "mapped" => false,
                 "required" => false,

@@ -21,49 +21,13 @@ class HomeController extends AbstractController
      * @Route("/", name="Accueil")
      */
 
-    public function home(Request $request, SluggerInterface $slugger, ExploitationRepository $repository, EntityManagerInterface $entityManager) : Response
+    public function home(ExploitationRepository $repository):Response
     {
-        $image = new Image();
-        $form = $this->createForm(ImageFormType::class, $image);
-        $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $imageFile = $form->get("image")->getData();
-
-            if($imageFile)
-            {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
-
-                try
-                {
-                    $imageFile->move($this->getParameter("images_directory"), $newFilename);
-                }
-                catch (FileException $e)
-                {
-                    print_r("MARHCE APSSSSSSSSSSSSSSSSSSSSSSSSS");
-                }
-
-                $image->setIdExploitation(1);
-                $image->setImageName($newFilename);
-                $exploitation = $repository->find(array("id" => 1));
-
-                $entityManager->persist($image);
-                $entityManager->flush();
-
-                $exploitation->setMainImage($image->getId());
-
-                $entityManager->persist($exploitation);
-                $entityManager->flush();
-
-            }
-        }
-
+        $exploitations = $repository->findAll();
         return $this->render('home/home.html.twig', [
             'controller_name' => 'HomeController',
-            'form' => $form->createView(),
+            'exploitations' => $exploitations,
         ]);
     }
 }

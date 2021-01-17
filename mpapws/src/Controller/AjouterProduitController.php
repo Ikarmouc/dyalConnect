@@ -27,6 +27,7 @@ class AjouterProduitController extends AbstractController
         if($form->isSubmitted() && $form->isValid())
         {
             $nom = $form->get("nom")->getData();
+            $categorie = $form->get("categorie")->getData();
             $description = $form->get("description")->getData();
             $imageFile = $form->get("image")->getData();
 
@@ -54,12 +55,15 @@ class AjouterProduitController extends AbstractController
                 $entityManager->flush();
 
                 $produit->setNom($nom);
+                $produit->setCategorie($categorie);
                 $produit->setIdExploitation($id);
                 $produit->setDescription($description);
                 $produit->setMainImage($image->getId());
 
                 $entityManager->persist($produit);
                 $entityManager->flush();
+
+                return $this->redirectToRoute("liste_produit", ["id" => $id]);
 
             }
         }

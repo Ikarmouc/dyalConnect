@@ -22,6 +22,11 @@ class ProduitType extends AbstractType
                     "placeholder" => "Nom du produit",
                 ],
             ])
+            ->add("categorie", TextType::class, [
+                "attr" => [
+                    "placeholder" => "Catégorie du produit",
+                ]
+            ])
             ->add('description', TextareaType::class, [
                 "attr" =>[
                     "placeholder" => "Description du produit",

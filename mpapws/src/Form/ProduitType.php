@@ -16,17 +16,21 @@ class ProduitType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // On construit un template pour créer un produit
         $builder
+            // Une petite zone de texte pour le nom du produit avec un placeholder (Nom du produit)
             ->add('nom', TextType::class, [
                 "attr" =>[
                     "placeholder" => "Nom du produit",
                 ],
             ])
+            // Une petite zone de texte pour la catégorie du produit avec un placeholder (Catégorie du produit)
             ->add("categorie", TextType::class, [
                 "attr" => [
                     "placeholder" => "Catégorie du produit",
                 ]
             ])
+            // Une grande zone de texte pour la description du produit avec un placeholder (Description du produit)
             ->add('description', TextareaType::class, [
                 "attr" =>[
                     "placeholder" => "Description du produit",
@@ -34,6 +38,7 @@ class ProduitType extends AbstractType
                     "rows" => 10,
                 ],
             ])
+            // Système d'upload de fichier, acceptant les formats png/jpeg, pour upload une image
             ->add("image", FileType::class, [
                 "label" => "Image du produit (PNG)",
                 "mapped" => false,
@@ -49,6 +54,7 @@ class ProduitType extends AbstractType
                     ])
                 ]
             ])
+            // Bouton pour terminer et envoyer le formulaire
             ->add("save", SubmitType::class, [
             "label" => "Enregistrer",
             ]);

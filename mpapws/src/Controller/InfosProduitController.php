@@ -18,11 +18,15 @@ class InfosProduitController extends AbstractController
      */
     public function index(ProduitRepository $produitRepository, ImageRepository $imageRepository,ExploitationRepository $exploitationRepository,int $id, int $idExploitation): Response
     {
+        // Récupération du produit sélectionner
         $produit = $produitRepository->find(array("id" => $id));
+        // Récupération de l'exploitation pour laquelle le produit appartient
         $exploitation = $exploitationRepository->find(array("id" => $idExploitation));
 
+        // On assigne le placeholder par défaut
         $image = "Chevrex.jpg";
 
+        // On vérifie si le produit à une image assigné
         if($produit->getMainImage() != null)
         {
             $image = $imageRepository->find(array("id" => $produit->getMainImage()))->getImageName();

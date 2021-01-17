@@ -18,11 +18,12 @@
     <div class="container-fluid bg-light d-flex justify-content-between w-75">
         <div>
             <h1 class="lead my-5 border-primary border-bottom rounded-left h1">{{ produit.nom }}</h1>
-            <p class="my-5">{{ produit.categorie }}</p>
-            <p class="my-5">{{ produit.description }}</p>
+            <p class="my-5 border rounded border-dark font-weight-bold p-2"><span class="font-weight-light text-secondary">Catégorie : </span>{{ produit.categorie }}</p>
+            <p class="my-5 border rounded border-dark font-weight-bold p-3"><span class="font-weight-light text-secondary text-center">Description<br><br></span>{{ produit.description }}</p>
+            <a href="/exploitation/{{ exploitation.id }}/produits" ><img style="max-width: 100px; max-height: 100px;" src="/images/leftArrow.png"></a>
         </div>
         <div>
-            <img src="/images/Chevrex.jpg">
+            <img style="margin-top: auto !important; margin-bottom: auto !important;" src="/images/{{ image }}">
         </div>
     </div>
 </body>

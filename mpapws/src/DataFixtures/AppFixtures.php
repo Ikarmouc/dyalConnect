@@ -49,7 +49,7 @@ class AppFixtures extends Fixture
             $entityManager->persist($produit2);
             $entityManager->persist($produit3);
 
-
+            /**
             $evenement1 = new Evenement();
             $evenement1->setNomEvt("Solde sur les fromages de chevres");
             $evenement1->setIdProducteur($i);
@@ -66,7 +66,7 @@ class AppFixtures extends Fixture
 
             $entityManager->persist($evenement1);
             $entityManager->persist($evenement2);
-
+            **/
             $entityManager->persist($producteurs);
             $entityManager->persist($exploitation);
         }
